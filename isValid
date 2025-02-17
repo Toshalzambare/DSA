@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        l=[]
+        switch={')':'(','}':'{',']':'['}
+        for i in s:
+            if i=='(' or i == '{' or i=='[' :
+                l.append(i)
+            elif i in switch:
+                if not l or l[-1] != switch[i]:
+                    return False
+                l.pop()
+        if(not l):
+            return True
+        return False
